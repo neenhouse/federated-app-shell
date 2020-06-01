@@ -1,0 +1,7 @@
+tabWidth: 4
+singleQuote: true
+bracketSpacing: false
+arrowParens: always
+requirePragma: true
+maxLines: 100
+endOfLine: auto

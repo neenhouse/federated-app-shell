@@ -1,0 +1,15 @@
+{
+    "presets": [
+        "@babel/preset-react",
+        [
+            "@babel/preset-env",
+            {
+                "modules": false,
+                "loose": true,
+                "useBuiltIns": "entry",
+                "corejs": 3
+            }
+        ]
+    ],
+    "plugins": ["transform-class-properties"]
+}

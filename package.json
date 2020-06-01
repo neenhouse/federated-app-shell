@@ -1,0 +1,11 @@
+{
+  "name": "federated-app-shell",
+  "private": true,
+  "scripts": {
+    "postinstall": "(cd appshell && npm install); (cd property && npm install); (cd search && npm install); (cd favorites && npm install)",
+    "start": "concurrently \"cd appshell; npm start;\" \"cd property; npm start;\" \"cd search; npm start;\" \"cd favorites; npm start;\""
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  }
+}

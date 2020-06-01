@@ -1,0 +1,37 @@
+{
+  "name": "property",
+  "description": "property details page",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"webpack --watch\" \"npm run serve\"",
+    "build": "webpack --mode production",
+    "serve": "serve dist -p 3002"
+  },
+  "dependencies": {
+    "@babel/core": "^7.8.6",
+    "@babel/preset-react": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "classnames": "^2.2.6",
+    "html-webpack-plugin": "git://github.com/neenhouse/html-webpack-plugin#master",
+    "lodash.debounce": "^4.0.8",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-router-dom": "^5.1.2",
+    "serve": "^11.3.0",
+    "webpack": "git://github.com/webpack/webpack.git#dev-1",
+    "webpack-cli": "^3.3.11"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "babel-eslint": "^10.1.0",
+    "concurrently": "^5.1.0",
+    "css-loader": "^3.5.2",
+    "eslint": "^6.8.0",
+    "eslint-loader": "^4.0.0",
+    "eslint-plugin-react": "^7.19.0",
+    "less": "^3.11.1",
+    "less-loader": "^5.0.0",
+    "style-loader": "^1.1.3"
+  }
+}
