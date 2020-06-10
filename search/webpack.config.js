@@ -92,9 +92,7 @@ module.exports = {
             remotes: {
                 appshell: 'appshell',
             },
-            exposes: {
-                './Search': './src/App'
-            },
+            exposes: {},
             shared: ['react', 'react-dom'],
         }),
         new HtmlWebpackPlugin({
