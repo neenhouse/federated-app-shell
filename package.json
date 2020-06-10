@@ -5,7 +5,8 @@
     "postinstall": "(cd appshell && npm install); (cd property && npm install); (cd search && npm install); (cd favorites && npm install)",
     "start": "concurrently \"cd appshell; npm start;\" \"cd property; npm start;\" \"cd search; npm start;\" \"cd favorites; npm start;\"",
     "docker:pull": "docker pull scriptedalchemy/mf-dashboard",
-    "docker:run": "docker run -p 3000:3000 -t scriptedalchemy/mf-dashboard:latest",
+    "docker:run": "docker run -p 3000:3000 --sig-proxy=true scriptedalchemy/mf-dashboard:latest",
+    "docker:stop": "docker kill $(docker ps -q --filter ancestor=scriptedalchemy/mf-dashboard:latest)",
     "docker:demo": "npm run docker:pull && npm run docker:run"
   },
   "devDependencies": {
