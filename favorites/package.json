@@ -20,7 +20,7 @@
     "serve": "^11.3.0",
     "url": "^0.11.0",
     "validate.js": "^0.13.1",
-    "webpack": "git://github.com/webpack/webpack.git#dev-1",
+    "webpack": "5.0.0-beta.17",
     "webpack-cli": "^3.3.11"
   },
   "devDependencies": {
@@ -28,6 +28,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-env": "^7.10.1",
     "@babel/preset-react": "^7.9.4",
+    "@module-federation/dashboard-plugin": "^0.2.0",
     "autoprefixer": "^9.7.6",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",

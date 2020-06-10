@@ -1,9 +1,9 @@
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+const { ModuleFederationPlugin } = require("webpack").container;
 const path = require('path');
 const pkg = require('./package.json');
-const SRC_DIR = path.join(__dirname, 'src', 'universal');
+const BuildHashPlugin = require('@module-federation/dashboard-plugin');
 
 module.exports = {
     entry: './src/index',
@@ -22,7 +22,7 @@ module.exports = {
 
     resolve: {
         extensions: ['.jsx', '.js', '.css', '.less', '.json', 'jpg', 'png'],
-        modules: ['node_modules', SRC_DIR],
+        modules: ['node_modules'],
         alias: { }
     },
 
@@ -91,13 +91,28 @@ module.exports = {
             remotes: {
                 appshell: 'appshell'
             },
-            exposes: {},
+            exposes: {
+                './Favorites': './src/App'
+            },
             shared: ['react', 'react-dom', 'react-router-dom'],
         }),
         new HtmlWebpackPlugin({
             hash: true,
             title: `${pkg.name} - ${pkg.description}`,
             template: './public/index.html',
+        }),
+        new BuildHashPlugin({
+            filename: 'dashboard.json',
+            dashboardURL: 'http://localhost:3000/api/update',
+            metadata: {
+              source: {
+                url: 'https://github.com/module-federation/federation-dashboard/tree/master/dashboard-example/home'
+              },
+              remote: 'http://localhost:3004/remoteEntry.js'
+            },
+            reportFunction: (data) => {
+                console.log('afterDone', data);
+            },
         }),
     ],
 };
